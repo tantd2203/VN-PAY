@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class ProductRequest {
     private Long id;
     private String name;
-    private Double price;
+    private int price;
 }

@@ -20,7 +20,7 @@ public class Orders implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nameCustomer;
-    private double amount_paid;
+    private int amount_paid;
     private String address;
     @CreatedDate
     private Date    createDate;
