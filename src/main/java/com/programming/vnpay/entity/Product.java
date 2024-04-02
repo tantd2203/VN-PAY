@@ -24,7 +24,10 @@ public class Product implements Serializable {
     private Double price;
 
 
-
     @OneToMany(mappedBy = "product")
     private List<OrderItem> orderItems;
+
+    @OneToMany(mappedBy = "product")
+    private List<Cart> carts;
+
 }

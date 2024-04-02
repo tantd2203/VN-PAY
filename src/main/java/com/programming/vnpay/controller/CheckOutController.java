@@ -16,11 +16,9 @@ public class CheckOutController {
 
     private final CheckOutService checkOutService;
 
-
     @PostMapping
     public String checkOut(@ModelAttribute CheckOutRequest checkOutRequest) {
         Orders order = checkOutService.checkOut(checkOutRequest.getNameCustomer(), checkOutRequest.getAddress());
-        System.out.println("hehe");
         return "redirect:/order/" + order.getId();
     }
 }

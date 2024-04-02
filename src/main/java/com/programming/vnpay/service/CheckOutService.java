@@ -1,5 +1,6 @@
 package com.programming.vnpay.service;
 
+import com.programming.vnpay.entity.Cart;
 import com.programming.vnpay.entity.OrderItem;
 import com.programming.vnpay.entity.Orders;
 import com.programming.vnpay.repository.OrderItemRepository;
@@ -22,11 +23,11 @@ public class CheckOutService {
     @Transactional
     public Orders checkOut(String nameCustomer, String address) {
         // Fetch the cart items
-        List<OrderItem> cartItems = cartService.getCart();
+        List<Cart> cartItems = cartService.getCart();
 
         // Calculate the total price
         double total = 0.0;
-        for (OrderItem item : cartItems) {
+        for (Cart item : cartItems) {
             total += item.getQuantity() * item.getPrice();
         }
 
@@ -40,10 +41,15 @@ public class CheckOutService {
         // Save the order
         order = orderRepository.save(order);
 
+
         // Assign the order to the cart items and save them
-        for (OrderItem item : cartItems) {
-            item.setOrder(order);
-            orderItemRepository.save(item);
+        for (Cart item : cartItems) {
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+            orderItem.setQuantity(item.getQuantity());
+            orderItem.setPrice(item.getPrice());
+            orderItem.setProduct(item.getProduct());
+            orderItemRepository.save(orderItem);
         }
 
         // Clear the cart
@@ -51,4 +57,37 @@ public class CheckOutService {
 
         return order;
     }
+
+//    @Transactional
+//    public Orders vnPay(String nameCustomer, String address) {
+//        // Fetch the cart items
+//        List<OrderItem> cartItems = cartService.getCart();
+//
+//        // Calculate the total price
+//        double total = 0.0;
+//        for (OrderItem item : cartItems) {
+//            total += item.getQuantity() * item.getPrice();
+//        }
+//
+//        // Create a new order
+//        Orders order = new Orders();
+//        order.setNameCustomer(nameCustomer);
+//        order.setAddress(address);
+//        order.setAmount_paid(total);
+//        order.setCreateDate(new Date());
+//
+//        // Save the order
+//        order = orderRepository.save(order);
+//
+//        // Assign the order to the cart items and save them
+//        for (OrderItem item : cartItems) {
+//            item.setOrder(order);
+//            orderItemRepository.save(item);
+//        }
+//
+//        // Clear the cart
+//        cartService.clearCart();
+//
+//        return order;
+//    }
 }

@@ -1,19 +1,18 @@
 package com.programming.vnpay.controller;
 
 import com.programming.vnpay.service.CartService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/cart")
+@RequiredArgsConstructor
 public class CartController {
 
     private final CartService cartService;
 
-    public CartController(CartService cartService) {
-        this.cartService = cartService;
-    }
 
     @GetMapping
     public String getCart(Model model) {
