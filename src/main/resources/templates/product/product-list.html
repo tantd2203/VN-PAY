@@ -27,6 +27,11 @@
             <td>
                 <a th:href="@{/products/update/{id}(id=${product.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a>
+                <!-- Add to Cart form -->
+                <form th:action="@{/cart/add/{id}(id=${product.id})}" method="post">
+                    <input type="number" name="quantity" min="1" value="1" required>
+                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                </form>
             </td>
         </tr>
         </tbody>

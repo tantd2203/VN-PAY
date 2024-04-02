@@ -25,7 +25,8 @@ public class Orders implements Serializable {
     @CreatedDate
     private Date    createDate;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // Thiết lập mối quan hệ "một-đến-nhiều" với OrderItem
+
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;
 
 

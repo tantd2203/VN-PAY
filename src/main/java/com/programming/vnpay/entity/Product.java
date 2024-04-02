@@ -23,6 +23,8 @@ public class Product implements Serializable {
     private String name;
     private Double price;
 
+
+
     @OneToMany(mappedBy = "product")
     private List<OrderItem> orderItems;
 }

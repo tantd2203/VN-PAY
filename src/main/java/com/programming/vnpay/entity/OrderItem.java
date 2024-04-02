@@ -20,11 +20,13 @@ public class OrderItem implements Serializable {
     private Integer quantity;
     private Double price;
 
-    @ManyToOne // Khai báo mối quan hệ nhiều-1 với lớp Orders
-    private Orders order;
-
-    @ManyToOne // Khai báo mối quan hệ nhiều-1 với lớp Product
+    @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Orders order;
 
 
 }

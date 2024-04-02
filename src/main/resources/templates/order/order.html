@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details</title>
+</head>
+<body>
+<h1>Order Details</h1>
+<p><strong>Order ID:</strong> <span th:text="${order.id}"></span></p>
+<p><strong>Customer Name:</strong> <span th:text="${order.nameCustomer}"></span></p>
+<p><strong>Address:</strong> <span th:text="${order.address}"></span></p>
+<p><strong>Total Paid:</strong> <span th:text="${order.amount_paid}"></span></p>
+<p><strong>Order Date:</strong> <span th:text="${order.createDate}"></span></p>
+</body>
+</html>
