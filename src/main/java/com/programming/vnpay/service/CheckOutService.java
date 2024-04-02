@@ -127,6 +127,7 @@ public class CheckOutService {
         vnp_Params.put("vnp_CurrCode", "VND");
 
         vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
+        // customer information
         vnp_Params.put("vnp_OrderInfo", orders.getNameCustomer() + " " + orders.getAddress());
         vnp_Params.put("vnp_OrderType", orderType);
 
