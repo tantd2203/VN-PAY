@@ -12,13 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/checkout")
+
 @RequiredArgsConstructor
 public class CheckOutController {
 
     private final CheckOutService checkOutService;
 
-    @PostMapping
+    @PostMapping(value = "/checkout")
     public String checkOut(@ModelAttribute CheckOutRequest checkOutRequest,
                            HttpServletRequest request) {
 
@@ -29,6 +29,7 @@ public class CheckOutController {
 
     }
     @GetMapping("/vnpay-payment")
+
     public String GetMapping(HttpServletRequest request, Model model){
         int paymentStatus =checkOutService.orderReturn(request);
 

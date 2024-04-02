@@ -123,7 +123,7 @@ public class CheckOutService {
         vnp_Params.put("vnp_Command", vnp_Command);
         vnp_Params.put("vnp_TmnCode", vnp_TmnCode);
 //       Value Amount
-        vnp_Params.put("vnp_Amount", String.valueOf(orders.getAmount_paid()));
+        vnp_Params.put("vnp_Amount", String.valueOf(orders.getAmount_paid()*100));
         vnp_Params.put("vnp_CurrCode", "VND");
 
         vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
